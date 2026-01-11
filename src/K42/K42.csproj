@@ -11,6 +11,8 @@
     <SelfContained>true</SelfContained>
     <PublishTrimmed>false</PublishTrimmed>
     <InvariantGlobalization>false</InvariantGlobalization>
+    <Version>0.2.0</Version>
+    <InformationalVersion>0.2.0-restart-fix</InformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -19,7 +19,8 @@ public class Program
             StopCommand.Create(),
             ListCommand.Create(),
             LogsCommand.Create(),
-            UnregisterCommand.Create()
+            UnregisterCommand.Create(),
+            VersionCommand.Create()
         };
 
         rootCommand.Description = @"
@@ -34,6 +35,7 @@ Commands:
   list              List all K42 containers
   logs <name>       View container logs
   unregister <name> Remove container registration
+  version           Show version and build info
 
 Examples:
   k42 run ./my-service.k42

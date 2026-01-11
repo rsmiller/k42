@@ -16,10 +16,11 @@ environment:
   KC_HOSTNAME_STRICT: "false"
   KC_HEALTH_ENABLED: "true"
   KC_DB_URL_DATABASE: keycloak
-  KC_DB_URL_HOST: localhost
+  KC_DB_URL_HOST: 127.0.0.1
+  KC_DB_URL_PORT: "5432"
   KC_DB: postgres
   KC_DB_PASSWORD: mysecretpassword!
-  KC_DB_USERNAME: keycloak
+  KC_DB_USERNAME: admin
 # ---K42-END---
 #
 # Keycloak Identity Server
@@ -30,4 +31,4 @@ environment:
 #
 # Access at: http://localhost:8080
 # Admin console: http://localhost:8080/admin
-# Login: admin / admin!fj999F
+# Login: admin / mysecretpassword

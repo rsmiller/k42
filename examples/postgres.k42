@@ -8,8 +8,8 @@ public-network: false
 storage-size: 10GB
 environment:
   POSTGRES_USER: admin
-  POSTGRES_PASSWORD: mysecretpassword
-  POSTGRES_DB: myapp
+  POSTGRES_PASSWORD: mysecretpassword!
+  POSTGRES_DB: keycloak
   PGDATA: /data/pgdata
 # ---K42-END---
 #
@@ -19,6 +19,6 @@ environment:
 # This is the correct setting for a database.
 #
 # Connect with:
-#   psql -h 127.0.0.1 -U admin -d myapp
+#   psql -h 127.0.0.1 -U admin -d keycloak
 #
 # Data is persisted in the /data volume (10GB allocated).

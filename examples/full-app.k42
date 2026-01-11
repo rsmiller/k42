@@ -1,0 +1,35 @@
+#!/usr/bin/env k42
+# ---K42-START---
+name: my-app
+image: myregistry.com/myapp:v1.2.3
+container-port: 3000
+host-port: 80
+public-network: true
+storage-size: 2GB
+workdir: /app
+environment:
+  NODE_ENV: production
+  DATABASE_URL: postgresql://admin:mysecretpassword@127.0.0.1:5432/myapp
+  REDIS_URL: redis://127.0.0.1:6379
+  API_KEY: sk-1234567890abcdef
+  LOG_LEVEL: info
+  MAX_CONNECTIONS: "100"
+# ---K42-END---
+#
+# Production application template.
+#
+# This example shows:
+# - Custom container port (3000) mapped to host port 80
+# - Environment variables for database, redis, and API keys
+# - All secrets are plain text (by design)
+# - Persistent storage for uploads/data
+#
+# The application should:
+# - Listen on port 3000 inside the container
+# - Store persistent data in /data (auto-mounted)
+# - Connect to postgres and redis on localhost
+#
+# Deploy stack:
+#   k42 run ./postgres.k42
+#   k42 run ./redis.k42
+#   k42 run ./my-app.k42

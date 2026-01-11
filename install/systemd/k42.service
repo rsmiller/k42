@@ -1,0 +1,34 @@
+[Unit]
+Description=K42 Container Manager
+Documentation=https://github.com/your-org/k42
+After=network-online.target docker.service containerd.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/k42-daemon
+ExecStop=/bin/kill -SIGTERM $MAINPID
+Restart=always
+RestartSec=5
+
+# Run as root (containers run as root per spec)
+User=root
+Group=root
+
+# Working directory
+WorkingDirectory=/var/lib/k42
+
+# Logging (goes to journald)
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=k42
+
+# Security hardening (basic)
+ProtectSystem=strict
+ReadWritePaths=/var/lib/k42 /var/log
+
+# Resource limits (none - host OS is responsible per spec)
+
+[Install]
+WantedBy=multi-user.target

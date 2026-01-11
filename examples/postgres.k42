@@ -1,0 +1,24 @@
+#!/usr/bin/env k42
+# ---K42-START---
+name: postgres-db
+image: postgres:16-alpine
+container-port: 5432
+host-port: 5432
+public-network: false
+storage-size: 10GB
+environment:
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: mysecretpassword
+  POSTGRES_DB: myapp
+  PGDATA: /data/pgdata
+# ---K42-END---
+#
+# PostgreSQL database container.
+#
+# Note: public-network is false, so this only binds to 127.0.0.1
+# This is the correct setting for a database.
+#
+# Connect with:
+#   psql -h 127.0.0.1 -U admin -d myapp
+#
+# Data is persisted in the /data volume (10GB allocated).

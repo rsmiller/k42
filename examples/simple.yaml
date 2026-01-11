@@ -1,0 +1,9 @@
+# K42 YAML files can also be plain YAML without script markers.
+# Just run with: k42 run ./simple.yaml
+
+name: hello-world
+image: hello-world:latest
+
+# Port 0 means no port binding
+container-port: 0
+host-port: 0

@@ -1,0 +1,19 @@
+#!/usr/bin/env k42
+# ---K42-START---
+name: nginx-hello
+image: nginx:alpine
+container-port: 80
+host-port: 8080
+public-network: true
+storage-size: 500MB
+environment:
+  NGINX_HOST: localhost
+  NGINX_PORT: 80
+# ---K42-END---
+#
+# This is a simple nginx container.
+# 
+# Run with: k42 run ./nginx.k42
+# Or directly: chmod +x nginx.k42 && ./nginx.k42
+#
+# Access at: http://localhost:8080

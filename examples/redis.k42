@@ -1,0 +1,23 @@
+#!/usr/bin/env k42
+# ---K42-START---
+name: redis-cache
+image: redis:7-alpine
+container-port: 6379
+host-port: 6379
+public-network: false
+storage-size: 1GB
+command:
+  - redis-server
+  - --appendonly
+  - "yes"
+  - --dir
+  - /data
+# ---K42-END---
+#
+# Redis cache with persistence.
+#
+# Data is persisted using append-only file (AOF) in /data.
+# Only accessible from localhost (public-network: false).
+#
+# Connect with:
+#   redis-cli -h 127.0.0.1 -p 6379

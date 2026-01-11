@@ -1,0 +1,33 @@
+#!/usr/bin/env k42
+# ---K42-START---
+name: keycloak
+image: quay.io/keycloak/keycloak:26.4.7
+container-port: 8080
+host-port: 8080
+public-network: true
+storage-size: 1GB
+command:
+  - start
+environment:
+  KC_BOOTSTRAP_ADMIN_USERNAME: admin
+  KC_BOOTSTRAP_ADMIN_PASSWORD: mysecretpassword
+  KC_PROXY_HEADERS: xforwarded
+  KC_HTTP_ENABLED: "true"
+  KC_HOSTNAME_STRICT: "false"
+  KC_HEALTH_ENABLED: "true"
+  KC_DB_URL_DATABASE: keycloak
+  KC_DB_URL_HOST: localhost
+  KC_DB: postgres
+  KC_DB_PASSWORD: mysecretpassword!
+  KC_DB_USERNAME: keycloak
+# ---K42-END---
+#
+# Keycloak Identity Server
+#
+# Prerequisites:
+#   - PostgreSQL running on localhost:5432
+#   - Run: k42 run ./postgres.k42
+#
+# Access at: http://localhost:8080
+# Admin console: http://localhost:8080/admin
+# Login: admin / admin!fj999F

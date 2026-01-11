@@ -177,8 +177,8 @@ public sealed class ContainerRuntime : IDisposable
             NetworkMode = "host",
             RestartPolicy = new RestartPolicy
             {
-                Name = RestartPolicyKind.OnFailure,
-                MaximumRetryCount = 5
+                Name = RestartPolicyKind.UnlessStopped,
+                MaximumRetryCount = 0
             },
             Mounts = new List<Mount>
             {

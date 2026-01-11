@@ -334,7 +334,7 @@ cd k42
 dotnet publish src/K42/K42.csproj -c Release -r linux-x64 --self-contained -o ./publish
 
 # Verify build
-./publish/K42 --help
+./publish/k42 --help
 ```
 
 #### Step 5: Install K42
